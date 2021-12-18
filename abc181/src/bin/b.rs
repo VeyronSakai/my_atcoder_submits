@@ -8,8 +8,8 @@ fn main() {
 
     let mut ans = 0_i64;
 
-    for i in 0..n {
-        ans += (v[i].1 + v[i].0) * (v[i].1 - v[i].0 + 1) / 2;
+    for &(a, b) in &v {
+        ans += (a + b) * (b - a + 1) / 2;
     }
 
     println!("{}", ans);
