@@ -2,8 +2,14 @@ use proconio::input;
 
 fn main() {
     input! {
-        a: i32,
-        b: i32,
+        a: char,
     }
-    println!("{}", a - b);
+
+    let ans = match a {
+        'a'..='z' => 'a',
+        'A'..='Z' => 'A',
+        _ => unreachable!()
+    };
+
+    println!("{}", ans);
 }
