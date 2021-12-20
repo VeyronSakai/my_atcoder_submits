@@ -4,6 +4,15 @@ fn main() {
     input! {
         a: i32,
         b: i32,
+        c: i32,
     }
-    println!("{}", a - b);
+
+    for v in a..=b {
+        if v % c == 0 {
+            println!("{}", v);
+            return;
+        }
+    }
+
+    println!("{}", -1);
 }
