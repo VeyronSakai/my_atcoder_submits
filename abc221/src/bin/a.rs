@@ -2,8 +2,8 @@ use proconio::input;
 
 fn main() {
     input! {
-        a: i32,
-        b: i32,
+        a: u32,
+        b: u32,
     }
-    println!("{}", a - b);
+    println!("{}", 32_i32.pow(a - b));
 }
