@@ -2,8 +2,18 @@ use proconio::input;
 
 fn main() {
     input! {
-        a: i32,
-        b: i32,
+        n: usize,
+        p: [i32; n],
     }
-    println!("{}", a - b);
+
+    let mut q = vec![0; n];
+
+    for i in 0..n {
+        q[(p[i] - 1) as usize] = i + 1;
+    }
+
+    for &v in &q {
+        print!("{}", v);
+        print!(" ");
+    }
 }
