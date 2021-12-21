@@ -2,8 +2,12 @@ use proconio::input;
 
 fn main() {
     input! {
-        a: i32,
-        b: i32,
+        n: usize,
+        p: i32,
+        a: [i32; n],
     }
-    println!("{}", a - b);
+
+    let ans = a.iter().filter(|&x| *x < p).count();
+
+    println!("{}", ans);
 }
