@@ -1,31 +1,9 @@
-use std::cmp::Ordering;
 use permutohedron::LexicalPermutation;
 use proconio::input;
 
 pub struct Town {
-    pub id: i32,
     pub x: i64,
     pub y: i64,
-}
-
-impl PartialEq<Self> for Town {
-    fn eq(&self, other: &Self) -> bool {
-        return self.id == other.id;
-    }
-}
-
-impl Eq for Town {}
-
-impl PartialOrd<Self> for Town {
-    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        Some(self.id.cmp(&other.id))
-    }
-}
-
-impl Ord for Town {
-    fn cmp(&self, other: &Self) -> Ordering {
-        return self.id.cmp(&other.id);
-    }
 }
 
 fn main() {
@@ -34,11 +12,13 @@ fn main() {
         vector: [(i64,i64); n]
     }
 
+    let mut sample: Vec<usize> = (0..n).collect();
+
     let mut towns: Vec<Town> = Vec::new();
 
     for i in 0..n {
         towns.push(Town {
-            id: i as i32,
+            // id: i as i32,
             x: vector[i].0,
             y: vector[i].1,
         });
@@ -51,13 +31,13 @@ fn main() {
         count += 1;
 
         for i in 0..n - 1 {
-            let x = towns[i + 1].x - towns[i].x;
-            let y = towns[i + 1].y - towns[i].y;
+            let x = towns[sample[i + 1]].x - towns[sample[i]].x;
+            let y = towns[sample[i + 1]].y - towns[sample[i]].y;
 
             sum += ((x * x + y * y) as f64).sqrt();
         }
 
-        if !towns.next_permutation() {
+        if !sample.next_permutation() {
             break;
         }
     }
