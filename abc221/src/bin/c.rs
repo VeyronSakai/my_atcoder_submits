@@ -11,6 +11,7 @@ fn main() {
 
     let k = n.len();
 
+    // bit full search
     for bit in 0..1 << k {
         // 分離する
         let mut a: Vec<u64> = Vec::new();
