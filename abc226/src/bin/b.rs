@@ -1,11 +1,23 @@
+use im_rc::HashSet;
 use proconio::input;
 use proconio::fastout;
 
 #[fastout]
 fn main() {
     input! {
-        a: i32,
-        b: i32,
+        n: usize,
     }
-    println!("{}", a - b);
+
+    let mut set: HashSet<Vec<i64>> = HashSet::new();
+
+    for _ in 0..n {
+        input! {
+            l: i32,
+            a: [i64; l]
+        }
+
+        set.insert(a);
+    }
+
+    println!("{}", set.len());
 }
