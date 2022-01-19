@@ -4,8 +4,16 @@ use proconio::fastout;
 #[fastout]
 fn main() {
     input! {
-        a: i32,
-        b: i32,
+        n: usize,
+        h: [i32; n],
     }
-    println!("{}", a - b);
+
+    for i in 0..n - 1 {
+        if h[i + 1] <= h[i] {
+            println!("{}", h[i]);
+            return;
+        }
+    }
+
+    println!("{}", h[n - 1]);
 }
