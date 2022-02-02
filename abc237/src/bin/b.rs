@@ -6,16 +6,7 @@ fn main() {
     input! {
         h: usize,
         w: usize,
-    }
-
-    let mut a: Vec<Vec<i64>> = Vec::new();
-
-    for _ in 0..h {
-        input! {
-            tmp_a: [i64; w]
-        }
-
-        a.push(tmp_a);
+        a: [[i64; w]; h]
     }
 
     for i in 0..w {
