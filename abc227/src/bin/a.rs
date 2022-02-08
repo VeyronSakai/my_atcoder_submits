@@ -9,14 +9,10 @@ fn main() {
         a: i32,
     }
 
-    if n == 1 {
-        println!("1");
-        return;
-    }
-
-    if k + a - 1 <= n {
-        println!("{}", k + a - 1);
+    let tmp = ((a - 1) + k) % n;
+    if tmp == 0 {
+        println!("{}", n);
     } else {
-        println!("{}", (k % n - 1 + a) % (n + 1));
+        println!("{}", tmp);
     }
 }
